@@ -65,22 +65,48 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        row-gap: 2rem;
+    }
+    @include desktop {
+        width: 90%;
+        justify-content: space-between;
+        margin: auto;
+    }
     &__logo {
         justify-content: center;
         align-items: center;
         padding: 1rem;
+        @include tablet {
+            display: flex;
+        }
         &--img{
             @include box(7.5rem,1.5625rem);
         }
     }
 }
+.header__navbar {
+    padding-bottom: 1rem;
+    @include tablet {
+        display: flex;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
 
 .header__search {
 display: flex;
-width: 100vw;
+width: 100%;
 column-gap: 0.5rem;
 padding-top: 0.5rem;
 padding-bottom: 0.5rem;
+@include tablet {
+    width: 15rem;
+    padding-right: 1rem;
+}
 &--container {
     position: relative;
     display: inline-block;
@@ -96,6 +122,7 @@ padding-bottom: 0.5rem;
     &::placeholder {
         padding-left: 1.25rem;
     }
+    
 }
 &--icon {
     position: absolute;
@@ -110,9 +137,9 @@ padding-bottom: 0.5rem;
     display: flex;
     clip-path: circle();
     @include box(2.25rem, 2.25rem);
-         @include tablet {
-            @include box(2.5rem, 2.5rem);
-            }
+       @include tablet {
+        display: none;
+       }
     }
 }
 .header__button {
@@ -124,6 +151,10 @@ padding-bottom: 0.5rem;
     color: $white;
     column-gap: 5.5rem;
     padding: 0.25rem;
+    @include tablet {
+        width: 12rem;
+        column-gap: 2rem;
+    }
     &--upload-icon {
         padding: 0.25rem;
     }
@@ -132,12 +163,19 @@ padding-bottom: 0.5rem;
         font-size: 1rem;
     }
 }
-.header__navbar {
-    padding-bottom: 1rem;
-    &--profile {
-        display: none;
-        @include tablet {
-            display: flex;
-        }
+.header__img-container {
+    @include tablet {
+        padding-left: 1rem;
+        padding-top: 0.25rem;
     }
 }
+.header__img--profile {
+    display: none;
+    @include tablet {
+        display: flex;
+        clip-path: circle();
+        @include box(2.25rem, 2.25rem);
+          
+    }
+}
+

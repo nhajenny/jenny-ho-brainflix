@@ -93,23 +93,60 @@ header {
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    row-gap: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  header {
+    width: 90%;
+    justify-content: space-between;
+    margin: auto;
+  }
+}
 header__logo {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+}
+@media (min-width: 768px) {
+  header__logo {
+    display: flex;
+  }
 }
 header__logo--img {
   width: 7.5rem;
   height: 1.5625rem;
 }
 
+.header__navbar {
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .header__navbar {
+    display: flex;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .header__search {
   display: flex;
-  width: 100vw;
+  width: 100%;
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  .header__search {
+    width: 15rem;
+    padding-right: 1rem;
+  }
 }
 .header__search--container {
   position: relative;
@@ -149,8 +186,7 @@ header__logo--img {
 }
 @media (min-width: 768px) {
   .header__search--profile {
-    width: 2.5rem;
-    height: 2.5rem;
+    display: none;
   }
 }
 
@@ -165,6 +201,13 @@ header__logo--img {
        column-gap: 5.5rem;
   padding: 0.25rem;
 }
+@media (min-width: 768px) {
+  .header__button {
+    width: 12rem;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+  }
+}
 .header__button--upload-icon {
   padding: 0.25rem;
 }
@@ -173,14 +216,22 @@ header__logo--img {
   font-size: 1rem;
 }
 
-.header__navbar {
-  padding-bottom: 1rem;
+@media (min-width: 768px) {
+  .header__img-container {
+    padding-left: 1rem;
+    padding-top: 0.25rem;
+  }
 }
-.header__navbar--profile {
+
+.header__img--profile {
   display: none;
 }
 @media (min-width: 768px) {
-  .header__navbar--profile {
+  .header__img--profile {
     display: flex;
+    -webkit-clip-path: circle();
+            clip-path: circle();
+    width: 2.25rem;
+    height: 2.25rem;
   }
 }/*# sourceMappingURL=styles.css.map */

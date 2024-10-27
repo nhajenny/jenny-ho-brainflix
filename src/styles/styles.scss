@@ -1,1 +1,13 @@
+@use './partials/typography' as *;
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
 //header 
+.header{
+
+}

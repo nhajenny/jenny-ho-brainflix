@@ -3,6 +3,13 @@
 @use './partials/mixins' as *;
 @use './partials/global' as *;
 
-
+//videoplayer
+.video__container {
+    width: 100%;
+    background-color: $brainflix-black;
+}
+.video__player {
+    @include box(100%, 5rem);
+}
 
 

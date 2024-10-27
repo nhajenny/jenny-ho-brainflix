@@ -1,2 +1,143 @@
 @use './typography' as *;
 @use './variables' as *;
+@use './mixins' as *;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+//text styles
+h1 {
+    font-family: avenirNext;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    @include tablet {
+        font-size: 2.0625rem;
+        line-height: 2.75rem;
+    }
+}
+h2 {
+    font-family: avenirNext;
+    font-weight: 700;
+    font-size: .75rem;
+    line-height: 1.25rem;
+    @include tablet {
+        font-size: .75rem;
+        line-height: 1.25rem;
+    }
+}
+h3 {
+    font-family: avenirNext;
+    font-weight: 700;
+    font-size: .8125rem;
+    line-height: 1.125rem;
+    @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+}
+body {
+    font-family: avenirNext;
+    font-weight: 400;
+    font-size: .8125rem;
+    line-height: 1.125rem;
+    @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+}
+button {
+    font-size: .625rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    @include tablet {
+        font-size: .75rem;
+        line-height: 1.25rem;
+    }
+}
+//header
+header {
+    padding: 1rem;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__logo {
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        &--img{
+            @include box(7.5rem,1.5625rem);
+        }
+    }
+}
+
+.header__search {
+display: flex;
+width: 100vw;
+column-gap: 0.5rem;
+padding-top: 0.5rem;
+padding-bottom: 0.5rem;
+&--container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+&--input {
+    padding: 0.625rem 2.5rem 0.625rem 0.625rem;
+    @include box(100%,2rem);
+    border-radius: .25rem;
+    box-sizing: border-box;
+    background-color: $alabaster;
+    border-color: $mercury;
+    &::placeholder {
+        padding-left: 1.25rem;
+    }
+}
+&--icon {
+    position: absolute;
+    left: 0.625rem; 
+    top: 50%;
+    transform: translateY(-50%);
+    width: .9375rem;
+    height: .9375rem;
+    cursor: pointer;
+}
+&--profile {
+    display: flex;
+    clip-path: circle();
+    @include box(2.25rem, 2.25rem);
+         @include tablet {
+            @include box(2.5rem, 2.5rem);
+            }
+    }
+}
+.header__button {
+    background-color: $brainflix-blue;
+    width: 100vw;
+    border-radius: .25rem;
+    border-color: $brainflix-blue;
+    display: flex;
+    color: $white;
+    column-gap: 5.5rem;
+    padding: 0.25rem;
+    &--upload-icon {
+        padding: 0.25rem;
+    }
+    &--text {
+        padding: 0.25rem;
+        font-size: 1rem;
+    }
+}
+.header__navbar {
+    padding-bottom: 1rem;
+    &--profile {
+        display: none;
+        @include tablet {
+            display: flex;
+        }
+    }
+}

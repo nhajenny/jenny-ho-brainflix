@@ -1,13 +1,8 @@
 @use './partials/typography' as *;
 @use './partials/variables' as *;
 @use './partials/mixins' as *;
+@use './partials/global' as *;
 
-*{
-    margin: 0;
-    padding: 0;
-}
 
-//header 
-.header{
 
-}
+

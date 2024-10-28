@@ -115,7 +115,7 @@
         @include tablet {
             display: flex;
             flex-direction: row;
-            column-gap: 0.5rem;
+            column-gap: 2rem;
         }
     }
     &--label {
@@ -144,15 +144,19 @@
     border-color: $brainflix-blue;
     display: flex;
     color: $white;
-    column-gap: 5.5rem;
     padding: 0.25rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     @include tablet {
-        @include box(30vw, 3rem);
+        @include box(20vw, 3rem);
         align-content: center;
     }
     &--text {
-        justify-content: center;
+        margin: auto;
+        @include tablet {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
     }
 }
 //comment section

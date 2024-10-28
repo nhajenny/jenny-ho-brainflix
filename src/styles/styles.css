@@ -365,8 +365,8 @@ header__logo--img {
   .comment__right--form {
     display: flex;
     flex-direction: row;
-    -moz-column-gap: 0.5rem;
-         column-gap: 0.5rem;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
   }
 }
 .comment__right--label {
@@ -398,20 +398,25 @@ header__logo--img {
   border-color: #0095FF;
   display: flex;
   color: #FFFFFF;
-  -moz-column-gap: 5.5rem;
-       column-gap: 5.5rem;
   padding: 0.25rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 @media (min-width: 768px) {
   .comment__button {
-    width: 30vw;
+    width: 20vw;
     height: 3rem;
     align-content: center;
   }
 }
 .comment__button--text {
-  justify-content: center;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .comment__button--text {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .comment__right {

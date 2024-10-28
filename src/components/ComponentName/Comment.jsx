@@ -3,11 +3,16 @@ import "../../styles/styles.css";
 import mohanMuruge from '../../assets/images/Mohan-muruge.jpg';
 import commentIcon from '../../assets/images/icons/add_comment.svg';
 
-
-function CommentForm () {
+//I dont think the event handler is fully functional yet :')
+function CommentForm ({onAddComment}) {
     const [comment, setComment] = useState('');
     const submitHandler = (event) => {
         event.preventDefault();
+        const newComment = {
+            comment: comment,
+            timestamp: Date.now()
+        };
+        onAddComment(newComment);
         console.log('Comment:',comment);
         setComment('');
     };

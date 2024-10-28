@@ -34,7 +34,9 @@ useEffect (()=> {
     setComments(mainVideo.comments);
   }
 },[mainVideo]);
-
+const handleAddComment = (newComment) => {
+  setComments((prevComments) => [...prevComments, newComment]); 
+}
   return (
     <div>
       <Header></Header>
@@ -55,7 +57,7 @@ useEffect (()=> {
            likes={mainVideo.likes}
            commentNo={mainVideo.comments.length}></VideoDescription>
           )}
-        <CommentForm></CommentForm>
+        <CommentForm onAddComment={handleAddComment}></CommentForm>
         <section>
                 {comments.length > 0 ? (
                     comments.map(comment => (
@@ -74,4 +76,4 @@ useEffect (()=> {
   )
 }
 
-export default App
+export default App;

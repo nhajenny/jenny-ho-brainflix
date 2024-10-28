@@ -3,7 +3,7 @@ import '../../styles/styles.css';
 import viewIcon from "../../assets/images/icons/views.svg";
 import likeIcon from "../../assets/images/icons/likes.svg";
 
-function VideoDescription ({title, description, channel, date, views,likes}) {
+function VideoDescription ({title, description, channel, date, views,likes,commentNo}) {
 return (
     <div className="description">
         <h1 className="description__title">{title}</h1>
@@ -24,6 +24,7 @@ return (
             </div>
         </div>
         <p className="description__text">{description}</p>
+        <div className="description__comment-count">{commentNo} Comments</div>
     </div>
 )
 }

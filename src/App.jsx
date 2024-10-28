@@ -13,6 +13,14 @@ useEffect(() => {
   setVideos(videoData); 
 }, []);
 const mainVideo=videos.length >0 ? videos[0] : null;
+const formatDate= (timestamp) => {
+  const date = new Date(timestamp);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'numeric', 
+    day: 'numeric'
+  });
+}
 
   return (
     <div>
@@ -29,9 +37,10 @@ const mainVideo=videos.length >0 ? videos[0] : null;
            title={mainVideo.title}
            description={mainVideo.description}
            channel={mainVideo.channel}
-           date={mainVideo.timestamp}
+           date={formatDate(mainVideo.timestamp)}
            views={mainVideo.views}
-           likes={mainVideo.likes}></VideoDescription>
+           likes={mainVideo.likes}
+           commentNo={mainVideo.comments.length}></VideoDescription>
           )}
     </div>
   )

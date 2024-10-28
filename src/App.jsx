@@ -74,6 +74,7 @@ const handleAddComment = (newComment) => {
                 )}
           </section>
           <section>
+          <h2 className="nextvideos__heading">NEXT VIDEOS</h2>
           {videos.length > 0 ? (
             videos.map (mainVideo => (
                 <NextVideos 

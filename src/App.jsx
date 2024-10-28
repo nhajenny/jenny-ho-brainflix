@@ -15,7 +15,7 @@ useEffect(() => {
   return (
     <div>
       <Header></Header>
-      <section>
+      <section className="section__video">
         {videos.length > 0 && (
           <div className="video-selected">
             <Videoplayer videoData={videos[0]}></Videoplayer>

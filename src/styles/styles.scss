@@ -4,12 +4,16 @@
 @use './partials/global' as *;
 
 //videoplayer
-.video__container {
-    background-color: $brainflix-black;
+.section__video {
+    background-color: $brainflix-darkblack;
+    &--container {
+        width: 100vw;
+    }
+    &--player {
+        @include box(100%,25rem);
+    }
 }
-.video__player {
-    @include box(100%,25rem);
-    
-}
+
+
 
 

@@ -236,11 +236,13 @@ header__logo--img {
   }
 }
 
-.video__container {
-  background-color: #323232;
+.section__video {
+  background-color: #000000;
 }
-
-.video__player {
+.section__video--container {
+  width: 100vw;
+}
+.section__video--player {
   width: 100%;
   height: 25rem;
 }/*# sourceMappingURL=styles.css.map */

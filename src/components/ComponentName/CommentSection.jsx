@@ -4,7 +4,8 @@ import "../../styles/styles.css";
 function CommentSection ({author,date,comment}) {
     return (
         <div className="comment__container">
-            <div className="comment__profile">
+            <div className="comment__left">
+                <div className="comment__left--profile"></div>
             </div>
             <div className="comment__right">
                 <div className="comment__top">

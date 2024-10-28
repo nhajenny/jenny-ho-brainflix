@@ -5,6 +5,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 //text styles
@@ -100,6 +101,7 @@ header {
 .header__search {
 display: flex;
 width: 100%;
+margin: auto;
 column-gap: 0.5rem;
 padding-top: 0.5rem;
 padding-bottom: 0.5rem;
@@ -144,7 +146,7 @@ padding-bottom: 0.5rem;
 }
 .header__button {
     background-color: $brainflix-blue;
-    width: 100vw;
+    width: 95vw;
     border-radius: .25rem;
     border-color: $brainflix-blue;
     display: flex;
@@ -175,6 +177,7 @@ padding-bottom: 0.5rem;
         display: flex;
         clip-path: circle();
         @include box(2.25rem, 2.25rem);
+        object-fit: cover;
           
     }
 }

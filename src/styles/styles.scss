@@ -88,9 +88,9 @@
 
 .comment__container {
     display: flex;
-    padding: 1rem;
     column-gap: 1rem;
     padding-bottom: 2rem;
+    padding-left: 2rem;
     border-bottom: .125rem solid $mercury;
 }
 .comment__left {
@@ -152,3 +152,4 @@
         justify-content: center;
     }
 }
+//comment section 

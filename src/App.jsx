@@ -7,13 +7,19 @@ import Videoplayer from './components/ComponentName/Videoplayer.jsx';
 import videoData from './data/video-details.json';
 import VideoDescription from "./components/ComponentName/VideoDescription.jsx"
 import CommentForm from './components/ComponentName/Comment.jsx';
+import CommentSection from './components/ComponentName/CommentSection.jsx';
 
 function App() {
 const [videos, setVideos]=useState([]);
+const [comments,setComments] = useState([]);
+const [currentVideo,setCurrentVideo] = useState(0);
+
 useEffect(() => {
   setVideos(videoData); 
 }, []);
-const mainVideo=videos.length >0 ? videos[0] : null;
+
+const mainVideo=videos.length >0 ? videos[currentVideo] : null;
+
 const formatDate= (timestamp) => {
   const date = new Date(timestamp);
   return date.toLocaleDateString('en-US', { 
@@ -21,7 +27,13 @@ const formatDate= (timestamp) => {
     month: 'numeric', 
     day: 'numeric'
   });
-}
+};
+
+useEffect (()=> {
+  if (mainVideo && mainVideo.comments) {
+    setComments(mainVideo.comments);
+  }
+},[mainVideo]);
 
   return (
     <div>
@@ -42,8 +54,22 @@ const formatDate= (timestamp) => {
            views={mainVideo.views}
            likes={mainVideo.likes}
            commentNo={mainVideo.comments.length}></VideoDescription>
-          )};
+          )}
         <CommentForm></CommentForm>
+        <section>
+                {comments.length > 0 ? (
+                    comments.map(comment => (
+                        <CommentSection 
+                            key={comment.id} 
+                            author={comment.name} 
+                            date={formatDate(comment.timestamp)} 
+                            comment={comment.comment} 
+                        ></CommentSection>
+                    ))
+                ) : ( 
+                    <p>No comments available</p>
+                )}
+          </section>
     </div>
   )
 }

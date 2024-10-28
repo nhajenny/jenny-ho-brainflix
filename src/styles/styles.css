@@ -86,9 +86,9 @@ button {
 header {
   padding: 1rem;
   display: flex;
-  width: 100%;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
   align-items: center;
 }
 @media (min-width: 768px) {
@@ -278,11 +278,12 @@ header__logo--img {
 
 .description__card {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 0.125rem solid #E1E1E1;
   border-top: 0.125rem solid #E1E1E1;
-  justify-content: space-between;
   font-size: 1rem;
 }
 @media (min-width: 768px) {
@@ -436,7 +437,6 @@ header__logo--img {
 }
 @media (min-width: 768px) {
   .comment__button--text {
-    display: flex;
     justify-content: center;
   }
 }
@@ -450,6 +450,7 @@ header__logo--img {
 
 .comment__top {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 .comment__top--name {

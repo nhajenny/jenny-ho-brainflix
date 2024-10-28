@@ -40,23 +40,20 @@
 }
 
 .description__card {
-   display: flex;
+   @include flex-row-between;
    padding-top: 0.5rem;
    padding-bottom: 0.5rem;
    border-bottom: .125rem solid $mercury;
    border-top: .125rem solid $mercury;
-   justify-content: space-between;
    font-size: 1rem;
    @include tablet {
-    display: flex;
-    flex-direction: row;
+    @include flex-row;
     border-top: none;
 
    }
 }
 .description__left {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     row-gap: 0.5rem;
     &--author {
         color: $brainflix-black
@@ -64,19 +61,16 @@
     &--date {
         color: $silver;
     }
-     @include tablet {
-    display: flex;
-    flex-direction: row;
+    @include tablet {
+    @include flex-row;
     column-gap: 1.25rem;
    }
 }
 .description__right {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     color: $silver;
     @include tablet {
-        display: flex;
-        flex-direction: row;
+        @include flex-row;
         column-gap: 1.5rem;
        }
     &-view-img {
@@ -113,15 +107,12 @@
 }
 
 .comment__right {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     &--form {
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         row-gap: 0.75rem;
         @include tablet {
-            display: flex;
-            flex-direction: row;
+            @include flex-row;
             column-gap: 2rem;
         }
     }
@@ -129,8 +120,7 @@
         color: $silver;
         font-weight: 600;
         font-size: 1.25rem;
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         padding-bottom: 0.5rem;
     }
     &--textarea {
@@ -166,7 +156,6 @@
     &--text {
         margin: auto;
         @include tablet {
-            display: flex;
             justify-content: center;
         }
     }
@@ -180,8 +169,7 @@
     row-gap: 0.5rem;
 }
 .comment__top {
-    display: flex;
-    justify-content: space-between;
+    @include flex-row-between;
     &--name {
         font-weight: 600;
     }
@@ -213,9 +201,7 @@
     color: $brainflix-black;
     column-gap: 1rem;
     &--right {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        @include flex-col-around;
     }
 }
 .nextvideos__img{

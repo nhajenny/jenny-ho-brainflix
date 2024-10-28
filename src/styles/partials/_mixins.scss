@@ -5,6 +5,42 @@
     width: $width;
     height: $height;
 }
+//flexbox mixins 
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+@mixin flex-just-center {
+    display: flex;
+    justify-content: center;
+}
+@mixin flex-alig-center {
+    display: flex;
+    align-items: center;
+}
+@mixin flex-just-start{
+    display: flex;
+    justify-content: flex-start;
+}
+@mixin flex-row-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+@mixin flex-col-jus-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@mixin flex-col-around {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
 //media queries
 @mixin tablet {

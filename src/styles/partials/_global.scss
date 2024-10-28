@@ -61,15 +61,11 @@ button {
 //header
 header {
     padding: 1rem;
-    display: flex;
+    @include flex-col-jus-center;
     width: 100%;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     @include tablet {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        @include flex-row-between;
         row-gap: 2rem;
     }
     @include desktop {

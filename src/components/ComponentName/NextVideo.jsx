@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "../../styles/styles.css";
 
 function NextVideos ({preview, title, channel}) {

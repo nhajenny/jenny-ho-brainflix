@@ -8,6 +8,7 @@ import videoData from './data/video-details.json';
 import VideoDescription from "./components/ComponentName/VideoDescription.jsx"
 import CommentForm from './components/ComponentName/Comment.jsx';
 import CommentSection from './components/ComponentName/CommentSection.jsx';
+import NextVideos from './components/ComponentName/NextVideo.jsx';
 
 function App() {
 const [videos, setVideos]=useState([]);
@@ -71,6 +72,17 @@ const handleAddComment = (newComment) => {
                 ) : ( 
                     <p>No comments available</p>
                 )}
+          </section>
+          <section>
+          {videos.length > 0 ? (
+            videos.map (mainVideo => (
+                <NextVideos 
+                    preview={mainVideo.image} 
+                    title={mainVideo.title}   
+                    channel={mainVideo.channel}></NextVideos>  
+            ))): (
+              <p>No videos avaialble</p>
+            )}
           </section>
     </div>
   )

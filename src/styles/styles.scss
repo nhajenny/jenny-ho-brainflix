@@ -5,11 +5,11 @@
 
 //videoplayer
 .video__container {
-    width: 100%;
     background-color: $brainflix-black;
 }
 .video__player {
-    @include box(100%, 5rem);
+    @include box(100%,25rem);
+    
 }
 
 

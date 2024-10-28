@@ -48,6 +48,8 @@ const handleAddComment = (newComment) => {
           </div>
         )}
       </section>
+      <div className="desktop__container">
+      <div className="desktop__left">
       {mainVideo && (
       <VideoDescription
            title={mainVideo.title}
@@ -73,7 +75,9 @@ const handleAddComment = (newComment) => {
                     <p>No comments available</p>
                 )}
           </section>
-          <section>
+      </div>
+      <div className="desktop__right">
+      <section>
           <h2 className="nextvideos__heading">NEXT VIDEOS</h2>
           {videos.length > 0 ? (
             videos.slice(1).map (mainVideo => (
@@ -85,6 +89,9 @@ const handleAddComment = (newComment) => {
               <p>No videos avaialble</p>
             )}
           </section>
+      </div>
+      </div>
+    
     </div>
   )
 }

@@ -6,6 +6,7 @@ import Header from './components/ComponentName/Header.jsx';
 import Videoplayer from './components/ComponentName/Videoplayer.jsx';
 import videoData from './data/video-details.json';
 import VideoDescription from "./components/ComponentName/VideoDescription.jsx"
+import CommentForm from './components/ComponentName/Comment.jsx';
 
 function App() {
 const [videos, setVideos]=useState([]);
@@ -41,7 +42,8 @@ const formatDate= (timestamp) => {
            views={mainVideo.views}
            likes={mainVideo.likes}
            commentNo={mainVideo.comments.length}></VideoDescription>
-          )}
+          )};
+        <CommentForm></CommentForm>
     </div>
   )
 }

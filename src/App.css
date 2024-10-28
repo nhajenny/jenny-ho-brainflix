@@ -1,17 +1,16 @@
 @font-face {
-  font-family: avenirNext;
+  font-family: "avenirNext";
   font-weight: 400;
-  src: url("../../assets/font/AvenirNextLTPro-Regular.otf") format("opentype");
-  src: url("../../assets/font/Alternative files/AvenirNextLTPro.ttf") format("truetype");
+  src: url("../../assets/font/AvenirNextLTPro-Regular.otf") format("opentype"), url("../../assets/font/Alternative files/AvenirNextLTPro.ttf") format("truetype");
 }
 @font-face {
-  font-family: avenirNext;
+  font-family: "avenirNext";
   font-weight: 600;
   src: url("../../assets/font/AvenirNextLTPro-Demi.otf") format("opentype");
   src: url("../../assets/font/Alternative files/AvenirNextLTProDemi.ttf") format("truetype");
 }
 @font-face {
-  font-family: avenirNext;
+  font-family: "avenirNext";
   font-weight: 700;
   src: url("../../assets/font/AvenirNextLTPro-Bold.otf") format("opentype");
   src: url("../../assets/font/Alternative files/AvenirNextLTProBold.ttf") format("truetype");
@@ -255,6 +254,21 @@ header__logo--img {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.description__text {
+  padding-top: 1rem;
+  color: #323232;
+}
+.description__comment-count {
+  color: #323232;
+  font-weight: 600;
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+@media (min-width: 768px) {
+  .description__comment-count {
+    font-size: 1.5rem;
+  }
+}
 
 .description__card {
   display: flex;
@@ -264,11 +278,17 @@ header__logo--img {
   border-top: 0.125rem solid #E1E1E1;
   justify-content: space-between;
 }
+@media (min-width: 768px) {
+  .description__card {
+    display: flex;
+    flex-direction: row;
+    border-top: none;
+  }
+}
 
 .description__left {
   display: flex;
   flex-direction: column;
-  font-size: 1.25rem;
   row-gap: 0.5rem;
 }
 .description__left--author {
@@ -277,24 +297,31 @@ header__logo--img {
 .description__left--date {
   color: #AFAFAF;
 }
+@media (min-width: 768px) {
+  .description__left {
+    display: flex;
+    flex-direction: row;
+    -moz-column-gap: 1.25rem;
+         column-gap: 1.25rem;
+  }
+}
 
 .description__right {
   display: flex;
   flex-direction: column;
   color: #AFAFAF;
-  font-size: 1.25rem;
+}
+@media (min-width: 768px) {
+  .description__right {
+    display: flex;
+    flex-direction: row;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
+  }
 }
 .description__right-view-img {
-  width: 1.5rem;
-  height: 1.5rem;
   padding-right: 0.25rem;
 }
 .description__right-like-img {
-  width: 1.5 rem;
-  height: 1.5 rem;
   padding-right: 0.25rem;
-}
-
-.description__text {
-  padding-top: 1rem;
 }/*# sourceMappingURL=App.css.map */

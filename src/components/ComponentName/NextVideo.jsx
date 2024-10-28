@@ -1,11 +1,12 @@
 import React from 'react';
 import "../../styles/styles.css";
 
-function NextVideos ({preview, title, channel}) {
+function NextVideos ({id,preview, title, channel, onVideoClick}) {
+
     return(
         <div className="nextvideos">
         <div className="nextvideos__container">
-            <div className="nextvideos__card">
+            <div className="nextvideos__card" onClick={()=> onVideoClick(id)}>
                 <div className="nextvideos__card--left{">
                     <img src={preview} alt="video preview" className="nextvideos__img"/>
                 </div>

@@ -38,6 +38,12 @@ useEffect (()=> {
 const handleAddComment = (newComment) => {
   setComments((prevComments) => [...prevComments, newComment]); 
 }
+const handleVideoClick = (videoId) => {
+  const newVideo = videos.findIndex(video => video.id === videoId);
+  if (newVideo !== -1) {
+      setCurrentVideo(newVideo); 
+  }
+};
   return (
     <div>
       <Header></Header>
@@ -81,10 +87,13 @@ const handleAddComment = (newComment) => {
           <h2 className="nextvideos__heading">NEXT VIDEOS</h2>
           {videos.length > 0 ? (
             videos.slice(1).map (mainVideo => (
-                <NextVideos 
+                <NextVideos
+                  key={mainVideo.id}
+                  id={mainVideo.id} 
                     preview={mainVideo.image} 
                     title={mainVideo.title}   
-                    channel={mainVideo.channel}></NextVideos>  
+                    channel={mainVideo.channel}
+                    onVideoClick={(videoId)=> handleVideoClick(videoId)}></NextVideos>  
             ))): (
               <p>No videos avaialble</p>
             )}

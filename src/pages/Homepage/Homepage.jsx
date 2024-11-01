@@ -23,11 +23,13 @@ const [currentVideo,setCurrentVideo] = useState({}); // state for specific video
 
 // to get all of the videos
 useEffect(() => {
-    //const baseUrl
-    //const const api_key
-    // make API call to get all of the videos
-    // store it in state
-  setVideos(videoData); 
+    const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
+    const apiKey = "ff57b588-8c97-45bb-8bbb-669ea72658b6";
+    const fetchVideos = async()=> {
+        const response = await axios.get(`${baseUrl}/videos?api_key=${apiKey}`);
+        setVideos(response.data);
+    }
+    fetchVideos()
 }, []);
 
 // another use effect for a specific video (different API call to differnt url/endpoint than the useEffect above)
@@ -68,6 +70,8 @@ useEffect (()=> {
     setComments(mainVideo.comments);
   }
 },[mainVideo]);
+
+//Comment section i think move this to their own component?
 const handleAddComment = (newComment) => {
   setComments((prevComments) => [...prevComments, newComment]); 
 }

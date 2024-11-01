@@ -1,4 +1,4 @@
-import React from 'react';
+
 import "../../styles/styles.css";
 import logo from '../../assets/images/logo/BrainFlix-logo.svg';
 import iconUpload from '../../assets/images/icons/upload.svg';

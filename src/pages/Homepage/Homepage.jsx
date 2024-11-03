@@ -11,7 +11,7 @@ function Homepage () {
     const {videoId} = useParams();
     //set state
     const [videos, setVideos] = useState([]);
-    const [currentVideo, setCurrentVideo] = useState (null)
+    const [currentVideo, setCurrentVideo] = useState (null);
     //retreive all videos from API and keep it in state
     const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
     const apiKey = "bf2734ef-fc96-49b4-8efe-f7dc03dbaf4a";
@@ -37,8 +37,7 @@ function Homepage () {
                 setCurrentVideo(response.data);
                 setVideos(allVideos);
                 return;
-            }
-                ;
+            };
             try {
                 const response = await axios.get(`${baseUrl}/videos/${videoId}?api_key=${apiKey}`);
                 setCurrentVideo(response.data);
@@ -51,9 +50,6 @@ function Homepage () {
         fetchCurrentVideo();
     }, [videoId]);
 
-
-// use a .filter() function to filter out the video that's showing, and return an array that only has the vides not currently showing in it
-
 const formatDate= (timestamp) => {
     const date = new Date(timestamp);
     return date.toLocaleDateString('en-US', { 
@@ -62,6 +58,7 @@ const formatDate= (timestamp) => {
       day: 'numeric'
     });
   };
+
 return (
     <div>
     <section className="section__video">
@@ -76,28 +73,27 @@ return (
        </section> 
         <div className="desktop__container">
           <div className="desktop__left"> 
-              {currentVideo && (
+            {currentVideo && (
              <VideoDescription
-           title={currentVideo.title}
-           description={currentVideo.description}
-           channel={currentVideo.channel}
-           date={formatDate(currentVideo.timestamp)}
-           views={currentVideo.views}
-           likes={currentVideo.likes}
-           commentNo={currentVideo.comments.length}></VideoDescription>
+                title={currentVideo.title}
+                description={currentVideo.description}
+                channel={currentVideo.channel}
+                date={formatDate(currentVideo.timestamp)}
+                views={currentVideo.views}
+                likes={currentVideo.likes}
+                commentNo={currentVideo.comments.length}></VideoDescription>
           )} 
             </div>
             <div className="desktop__right">
       <section>
            <h2 className="nextvideos__heading">NEXT VIDEOS</h2>
             {videos.length > 0 ? (
-            videos.slice(1).map (mainVideo => (
-                <NextVideos // <Link to={`videos/${mainVideo.id}}
-                  key={mainVideo.id}
-                  id={mainVideo.id} 
-                    preview={mainVideo.image} 
-                    title={mainVideo.title}   
-                    channel={mainVideo.channel}
+            videos.filter(video => video.id !== currentVideo.id).map(videoList => (
+                <NextVideos 
+                    id={videoList.id} 
+                    preview={videoList.image} 
+                    title={videoList.title}   
+                    channel={videoList.channel}
                     onVideoClick={(videoId)=> handleVideoClick(videoId)}></NextVideos>  
             ))): (
               <p>No videos avaialble</p>
@@ -110,7 +106,7 @@ return (
 
 
       
-         {/* <CommentForm></CommentForm>
+         // <CommentForm></CommentForm>
 //         <section>
 //                 {comments.length > 0 ? (
 //                     comments.map(comment => (

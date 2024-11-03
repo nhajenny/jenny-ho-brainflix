@@ -2,8 +2,8 @@ import { useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Videoplayer from '../../components/Videoplayer/Videoplayer';
 import VideoDescription from "../../components/VideoDescription/VideoDescription.jsx"
-// import CommentForm from '../../components/Comment/Comment.jsx';
-// import CommentSection from '../../components/CommentSection/CommentSection.jsx';
+import CommentForm from '../../components/CommentForm/CommentForm.jsx';
+import CommentSection from '../../components/CommentSection/CommentSection.jsx';
 import NextVideos from '../../components/NextVideo/NextVideo.jsx';
 import axios from 'axios';
 
@@ -12,6 +12,7 @@ function Homepage () {
     //set state
     const [videos, setVideos] = useState([]);
     const [currentVideo, setCurrentVideo] = useState (null);
+    const [comments, setComments] = useState({});
     //retreive all videos from API and keep it in state
     const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
     const apiKey = "bf2734ef-fc96-49b4-8efe-f7dc03dbaf4a";
@@ -41,7 +42,8 @@ function Homepage () {
             try {
                 const response = await axios.get(`${baseUrl}/videos/${videoId}?api_key=${apiKey}`);
                 setCurrentVideo(response.data);
-                setVideos(allVideos)
+                setComments(response.data.comments);
+                setVideos(allVideos);
                 console.log(response.data);
             } catch (error) {
                 console.log("Error in fetchCurrentVideo:", error.message);
@@ -83,6 +85,20 @@ return (
                 likes={currentVideo.likes}
                 commentNo={currentVideo.comments.length}></VideoDescription>
           )} 
+            <CommentForm></CommentForm>
+            
+        <section>
+                 {currentVideo  &&  (
+                        <CommentSection 
+                            key={comments.id} 
+                            author={comments.name} 
+                            date={formatDate(comments.timestamp)} 
+                            comment={comments.comment} 
+                        ></CommentSection>
+                    )}
+                
+          </section>
+
             </div>
             <div className="desktop__right">
       <section>
@@ -94,33 +110,17 @@ return (
                     preview={videoList.image} 
                     title={videoList.title}   
                     channel={videoList.channel}
-                    onVideoClick={(videoId)=> handleVideoClick(videoId)}></NextVideos>  
+                    ></NextVideos>  
             ))): (
               <p>No videos avaialble</p>
              )}
-             </section> 
+        </section> 
        </div>
             </div>
     </div>
 )
 
 
-      
-         // <CommentForm></CommentForm>
-//         <section>
-//                 {comments.length > 0 ? (
-//                     comments.map(comment => (
-//                         <CommentSection 
-//                             key={comment.id} 
-//                             author={comment.name} 
-//                             date={formatDate(comment.timestamp)} 
-//                             comment={comment.comment} 
-//                         ></CommentSection>
-//                     ))
-//                 ) : ( 
-//                     <p>No comments available</p>
-//                 )}
-//           </section>
 //       </div>
 //       
       {/* </div> */}

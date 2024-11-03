@@ -12,7 +12,7 @@ function Homepage () {
     //set state
     const [videos, setVideos] = useState([]);
     const [currentVideo, setCurrentVideo] = useState (null);
-    const [comments, setComments] = useState({});
+    const [comments, setComments] = useState([]);
     //retreive all videos from API and keep it in state
     const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
     const apiKey = "bf2734ef-fc96-49b4-8efe-f7dc03dbaf4a";
@@ -27,7 +27,6 @@ function Homepage () {
         }
     };
 
-
     //fetchCurrentVideo by ID
 
     useEffect(() => {
@@ -36,6 +35,7 @@ function Homepage () {
             if (!videoId) {
                 const response = await axios.get(`${baseUrl}/videos/${allVideos[0].id}?api_key=${apiKey}`);
                 setCurrentVideo(response.data);
+                setComments(response.data.comments);
                 setVideos(allVideos);
                 return;
             };
@@ -88,15 +88,18 @@ return (
             <CommentForm></CommentForm>
             
         <section>
-                 {currentVideo  &&  (
+                 {comments.length > 0 ?  (
+                    comments.map((comments) => (
                         <CommentSection 
-                            key={comments.id} 
-                            author={comments.name} 
-                            date={formatDate(comments.timestamp)} 
-                            comment={comments.comment} 
-                        ></CommentSection>
-                    )}
-                
+                        key={comments.id} 
+                        author={comments.name} 
+                        date={formatDate(comments.timestamp)} 
+                        comment={comments.comment} 
+                    ></CommentSection>
+                    )
+                 )):(
+                    <p>No comments available</p>
+                )}
           </section>
 
             </div>
@@ -119,11 +122,6 @@ return (
             </div>
     </div>
 )
-
-
-//       </div>
-//       
-      {/* </div> */}
     
 }
 

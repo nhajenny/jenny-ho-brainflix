@@ -1,6 +1,6 @@
 import "../../styles/styles.css";
 
-function NextVideos ({id,preview, title, channel, onVideoClick}) {
+function NextVideos ({id,preview, title, channel}) {
 
     return(
         <div className="nextvideos">

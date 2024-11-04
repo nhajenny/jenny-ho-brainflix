@@ -627,6 +627,9 @@ header__logo--img {
   border-color: #E1E1E1;
   border-radius: 0.25rem;
 }
+.upload__form--error {
+  border-color: red;
+}
 @media (min-width: 1280px) {
   .upload__form {
     width: 35rem;

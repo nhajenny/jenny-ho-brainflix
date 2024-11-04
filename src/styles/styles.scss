@@ -305,6 +305,9 @@
         border-color: $mercury;
         border-radius: .25rem;
     }
+    &--error {
+        border-color: red;
+    }
     @include desktop {
         @include box(35rem, 15rem)
     }
@@ -366,3 +369,4 @@
         display: none;
     }
 }
+

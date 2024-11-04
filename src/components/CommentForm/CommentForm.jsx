@@ -1,6 +1,7 @@
 import "../../styles/styles.css";
 import mohanMuruge from '../../assets/images/Mohan-muruge.jpg';
 import commentIcon from '../../assets/images/icons/add_comment.svg';
+import {useState} from 'react';
 
 
 function CommentForm () {

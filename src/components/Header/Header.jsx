@@ -4,13 +4,15 @@ import logo from '../../assets/images/logo/BrainFlix-logo.svg';
 import iconUpload from '../../assets/images/icons/upload.svg';
 import mohanMuruge from '../../assets/images/Mohan-muruge.jpg';
 import iconSearch from '../../assets/images/icons/search.svg';
+import {Link} from 'react-router-dom';
 
 function Header() {
     return (
         <header>
-        <div className="header__logo">
+        <Link to="/" className="header__logo">
             <img src={logo} alt="BrainFlix logo" className="header__logo--img"/>
-        </div>
+        </Link>
+           
         <div className="header__navbar">
             <div className="header__search">
                 <div className="header__search--container">

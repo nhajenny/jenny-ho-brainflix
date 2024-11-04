@@ -8,13 +8,13 @@ import Upload from './pages/Upload/Upload.jsx';
 function App() {
   return (
     <div>
-      <Header/>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Homepage/>}/>
-            <Route path="/videos/:videoId" element={<Homepage/>}/>
-            <Route path="Upload" element={<Upload/>}/>
-          </Routes>
+          <Header/>
+            <Routes>
+              <Route path="/" element={<Homepage/>}/>
+              <Route path="/videos/:videoId" element={<Homepage/>}/>
+              <Route path="Upload" element={<Upload/>}/>
+            </Routes>
       </BrowserRouter>
     </div>
  

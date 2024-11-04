@@ -30,7 +30,7 @@ function Upload () {
         else setDescriptionError(false);
 
         if (title.trim() && description.trim()) {
-            console.log("Form submitted:", { title, description });
+            console.log("Uploaded submitted:", { title, description });
             setTitle("");
             setDescription("");
             setTitleError(false);
@@ -65,7 +65,7 @@ function Upload () {
                         name="descriptionInput"
                         value = {description}
                         placeholder = "Add a description to your video"
-                        className={`"upload__form--description"${descriptionError ? "upload__form--error" : ""}`}
+                        className={`upload__form--description${descriptionError ? "upload__form--error" : ""}`}
                         onChange={(e)=>setDescription(e.target.value)}></textarea>
                     </label>
                     <div className="upload__bottom--buttons">

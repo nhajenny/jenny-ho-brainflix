@@ -52,14 +52,24 @@ function Homepage () {
         fetchCurrentVideo();
     }, [videoId]);
 
-const formatDate= (timestamp) => {
-    const date = new Date(timestamp);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'numeric', 
-      day: 'numeric'
-    });
-  };
+    //post comment 
+    const handleAddComment = async () => {
+        try {
+            const response = await axios.post(`${baseUrl}/videos/${videoId}/comments?api_key=${apiKey}`);
+            setComments([...comments, response.data]); 
+        } catch (error) {
+            console.error("Error adding comment:", error.message);
+        }
+    };
+
+    const formatDate= (timestamp) => {
+        const date = new Date(timestamp);
+        return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'numeric', 
+        day: 'numeric'
+        });
+    };
 
 
 return (
@@ -86,7 +96,7 @@ return (
                 likes={currentVideo.likes}
                 commentNo={currentVideo.comments.length}></VideoDescription>
           )} 
-            <CommentForm></CommentForm>
+            <CommentForm onAddComment={handleAddComment}></CommentForm>
             
         <section>
                  {comments.length > 0 ?  (

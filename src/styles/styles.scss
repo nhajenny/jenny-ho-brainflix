@@ -9,7 +9,11 @@
     width: 100vw;
     &--player {
         @include box(100%,25rem);
+        @include desktop {
+            @include box(100%, 35rem);
+        }
     }
+    
 }
 
 //video description
@@ -93,6 +97,9 @@
     @include desktop {
         width: 70%;
     }
+}
+.comment__error {
+    border-color: red;
 }
 
 .comment__left {
@@ -309,7 +316,7 @@
         border-color: red;
     }
     @include desktop {
-        @include box(35rem, 15rem)
+        @include box(35rem, 15rem);
     }
 }
 .upload__button {
@@ -340,6 +347,9 @@
         padding: 1rem;
         padding-top: 1rem;
         column-gap: 3rem;
+    }
+    @include desktop {
+        padding-top: 8rem;
     }
 }
 .upload__cancel {

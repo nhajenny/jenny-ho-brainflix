@@ -302,14 +302,14 @@
     }
     &--title {
         @include box(100%, 2rem);
-        color: $mercury;
+        color: $silver;
         border-color: $mercury;
         border-radius: .25rem;
         background-color: $alabaster;
     }
     &--description {
         @include box(100%, 6rem);
-        color: $mercury;
+        color: $silver;
         border-color: $mercury;
         border-radius: .25rem;
         background-color: $alabaster;

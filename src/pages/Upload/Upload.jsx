@@ -31,6 +31,7 @@ function Upload () {
 
         if (title.trim() && description.trim()) {
             console.log("Uploaded submitted:", { title, description });
+            alert("submitted!")
             setTitle("");
             setDescription("");
             setTitleError(false);

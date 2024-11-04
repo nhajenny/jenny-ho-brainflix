@@ -626,7 +626,7 @@ header__logo--img {
 .upload__form--title {
   width: 100%;
   height: 2rem;
-  color: #E1E1E1;
+  color: #AFAFAF;
   border-color: #E1E1E1;
   border-radius: 0.25rem;
   background-color: #FAFAFA;
@@ -634,7 +634,7 @@ header__logo--img {
 .upload__form--description {
   width: 100%;
   height: 6rem;
-  color: #E1E1E1;
+  color: #AFAFAF;
   border-color: #E1E1E1;
   border-radius: 0.25rem;
   background-color: #FAFAFA;

@@ -149,6 +149,10 @@ padding-bottom: 0.5rem;
     color: $white;
     column-gap: 5.5rem;
     padding: 0.25rem;
+    &:hover {
+        background-color: $brainflix-darkblue;
+        border-color: $brainflix-darkblue;
+    }
     @include tablet {
         width: 12rem;
         column-gap: 2rem;

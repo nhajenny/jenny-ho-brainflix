@@ -13,7 +13,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage/>}/>
               <Route path="/videos/:videoId" element={<Homepage/>}/>
-              <Route path="Upload" element={<Upload/>}/>
+              <Route path="/upload" element={<Upload/>}/>
             </Routes>
       </BrowserRouter>
     </div>

@@ -146,6 +146,10 @@
     color: $white;
     padding: 0.25rem;
     font-size: .625rem;
+    &:hover {
+        background-color: $brainflix-darkblue;
+        border-color: $brainflix-darkblue;
+    }
     @include tablet {
         @include box(20vw, 3rem);
         align-content: center;
@@ -239,4 +243,66 @@
     @include desktop {
         padding-top: 1rem;
     }
+}
+
+//Upload 
+.upload {
+    padding: 1rem;
+    @include flex-column;
+    &__title {
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+    }
+    &__subtitle {
+        font-size: 1.5rem;
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        color: $silver;
+    }
+    &__image {
+        @include box(100%);
+        padding-top: 0.5rem;
+    }
+}
+.upload__form {
+    padding-top: 1rem;
+    @include flex-column;
+    row-gap: 1rem;
+    &--label {
+        font-size: 1rem;
+        @include flex-column;
+        color: $silver;
+        font-weight: 600;
+    }
+    &--title {
+        @include box(100%, 2rem);
+        color: $alabaster;
+        border-color: $mercury;
+        border-radius: .25rem;
+    }
+    &--description {
+        @include box(100%, 6rem);
+        color: $alabaster;
+        border-color: $mercury;
+        border-radius: .25rem;
+    }
+}
+.upload__button {
+    background-color: $brainflix-blue;
+    width: 80vw;
+    border-radius: .25rem;
+    border-color: $brainflix-blue;
+    display: flex;
+    color: $white;
+    padding: 0.25rem;
+    font-size: .625rem;
+    &:hover {
+        background-color: $brainflix-darkblue;
+        border-color: $brainflix-darkblue;
+    }
+}
+.upload__cancel {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
 }

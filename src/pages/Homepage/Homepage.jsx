@@ -53,10 +53,12 @@ function Homepage () {
     }, [videoId]);
 
     //post comment 
-    const handleAddComment = async () => {
+    const handleAddComment = async (commentText) => {
         try {
-            const response = await axios.post(`${baseUrl}/videos/${videoId}/comments?api_key=${apiKey}`);
-            setComments([...comments, response.data]); 
+            const response = await axios.post(`${baseUrl}/videos/${videoId}/comments?api_key=${apiKey}`,
+                {comment: commentText}
+            );
+            setComments([...comments, response.data.comments]); 
         } catch (error) {
             console.error("Error adding comment:", error.message);
         }

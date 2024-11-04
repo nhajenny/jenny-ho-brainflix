@@ -4,7 +4,7 @@ import commentIcon from '../../assets/images/icons/add_comment.svg';
 import {useState} from 'react';
 
 
-function CommentForm ({onAddComment}) {
+function CommentForm () {
 
     const [comment, setComment] = useState("");
     const [commentError, setCommentError] = useState(false);
@@ -18,7 +18,6 @@ function CommentForm ({onAddComment}) {
         else setCommentError(false);
         if (comment.trim()) { 
             console.log("Comment submmited", {comment});
-            onAddComment(comment);
             setComment("");
             setCommentError(false);
 

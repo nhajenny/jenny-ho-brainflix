@@ -1,5 +1,5 @@
 import { useEffect,useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import Videoplayer from '../../components/Videoplayer/Videoplayer';
 import VideoDescription from "../../components/VideoDescription/VideoDescription.jsx"
 import CommentForm from '../../components/CommentForm/CommentForm.jsx';
@@ -61,6 +61,7 @@ const formatDate= (timestamp) => {
     });
   };
 
+
 return (
     <div>
     <section className="section__video">
@@ -108,12 +109,15 @@ return (
            <h2 className="nextvideos__heading">NEXT VIDEOS</h2>
             {videos.length > 0 ? (
             videos.filter(video => video.id !== currentVideo.id).map(videoList => (
-                <NextVideos 
-                    id={videoList.id} 
-                    preview={videoList.image} 
-                    title={videoList.title}   
-                    channel={videoList.channel}
-                    ></NextVideos>  
+                <Link to={`/videos/${videoList.id}`} key={videoList.id}> 
+                    <NextVideos 
+                        id={videoList.id} 
+                        preview={videoList.image} 
+                        title={videoList.title}   
+                        channel={videoList.channel}
+                        onClick = {()=> handleVideoClick(videoList.id)}
+                    ></NextVideos> 
+                </Link> 
             ))): (
               <p>No videos avaialble</p>
              )}

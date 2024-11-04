@@ -22,10 +22,12 @@ function Header() {
                 </div>
                 <img src={mohanMuruge} alt="profile picture of Mohan Muruge" className="header__search--profile"/>
             </div>
+            <Link to="/upload" className="header__link--button">
             <button className="header__button">
                 <img src={iconUpload} alt="upload icon left side of button" className="header__button--upload-icon"/>
                 <label className="header__button--text">UPLOAD</label>
             </button>
+            </Link>
             <div className="header__img-container">
             <img src={mohanMuruge} alt="profile picture of Mohan Muruge" className="header__img--profile"/>
             </div>

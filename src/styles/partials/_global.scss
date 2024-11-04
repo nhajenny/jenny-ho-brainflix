@@ -140,6 +140,9 @@ padding-bottom: 0.5rem;
        }
     }
 }
+.header__link--button {
+    text-decoration: none;
+}
 .header__button {
     background-color: $brainflix-blue;
     width: 95vw;

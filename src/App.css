@@ -189,6 +189,10 @@ header__logo--img {
   }
 }
 
+.header__link--button {
+  text-decoration: none;
+}
+
 .header__button {
   background-color: #0095FF;
   width: 95vw;

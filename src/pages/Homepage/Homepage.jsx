@@ -109,7 +109,7 @@ return (
            <h2 className="nextvideos__heading">NEXT VIDEOS</h2>
             {videos.length > 0 ? (
             videos.filter(video => video.id !== currentVideo.id).map(videoList => (
-                <Link to={`/videos/${videoList.id}`} key={videoList.id}> 
+                <Link to={`/videos/${videoList.id}`} key={videoList.id} className="nextvideos__link"> 
                     <NextVideos 
                         id={videoList.id} 
                         preview={videoList.image} 

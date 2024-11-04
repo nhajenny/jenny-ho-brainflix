@@ -286,7 +286,7 @@
     @include desktop {
         @include flex-row;
         width: 100%;
-        column-gap: 10%;
+        column-gap: 5%;
         padding-bottom: 2rem;
     }
 }
@@ -302,21 +302,24 @@
     }
     &--title {
         @include box(100%, 2rem);
-        color: $alabaster;
+        color: $mercury;
         border-color: $mercury;
         border-radius: .25rem;
+        background-color: $alabaster;
     }
     &--description {
         @include box(100%, 6rem);
-        color: $alabaster;
+        color: $mercury;
         border-color: $mercury;
         border-radius: .25rem;
+        background-color: $alabaster;
     }
     &--error {
+      
         border-color: red;
     }
     @include desktop {
-        @include box(35rem, 15rem);
+        @include box(50vw, 30rem);
     }
 }
 .upload__button {

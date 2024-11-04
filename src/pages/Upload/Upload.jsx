@@ -50,14 +50,14 @@ function Upload () {
             <div> 
                 <form className="upload__form" onSubmit={handleSubmit}>
                     <label className="upload__form--label">TITLE YOUR VIDEO
-                        <input 
+                        <textarea 
                         type="text"
                         name = "titleInput"
                         value = {title}
                         onChange = {(e)=> setTitle(e.target.value)}
                         placeholder = "Add a title to your video"
                         className={`upload__form--title ${titleError ? "upload__form--error" : ""}`}
-                        ></input>
+                        ></textarea>
                     </label>
                     <label className="upload__form--label"> ADD A VIDEO DESCRIPTION
                         <textarea 
@@ -65,7 +65,7 @@ function Upload () {
                         name="descriptionInput"
                         value = {description}
                         placeholder = "Add a description to your video"
-                        className={`upload__form--description${descriptionError ? "upload__form--error" : ""}`}
+                        className="upload__form--description"
                         onChange={(e)=>setDescription(e.target.value)}></textarea>
                     </label>
                     <div className="upload__bottom--buttons">

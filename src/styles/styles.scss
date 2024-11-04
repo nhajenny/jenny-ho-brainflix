@@ -246,6 +246,7 @@
 //Upload 
 .upload {
     padding: 1rem;
+    border-top: 0.1rem solid $mercury;
     @include flex-column;
     &__title {
         font-size: 2.5rem;
@@ -260,6 +261,26 @@
     &__image {
         @include box(100%);
         padding-top: 0.5rem;
+        @include tablet {
+            @include box(35%,12.5rem);
+        }
+        @include desktop {
+            @include box(100%, 20rem)
+        }
+    }
+    @include tablet {
+        padding: 1.5rem;
+    }
+    &__publish--link {
+        text-decoration: none;
+    }
+}
+.upload__desktop--container {
+    @include desktop {
+        @include flex-row;
+        width: 100%;
+        column-gap: 10%;
+        padding-bottom: 2rem;
     }
 }
 .upload__form {
@@ -284,23 +305,64 @@
         border-color: $mercury;
         border-radius: .25rem;
     }
+    @include desktop {
+        @include box(35rem, 15rem)
+    }
 }
 .upload__button {
     background-color: $brainflix-blue;
-    width: 80vw;
+    width: 100%;
     border-radius: .25rem;
     border-color: $brainflix-blue;
     display: flex;
     color: $white;
     padding: 0.25rem;
     font-size: .625rem;
+    column-gap: 40%;
     &:hover {
         background-color: $brainflix-darkblue;
         border-color: $brainflix-darkblue;
     }
+    @include tablet {
+        @include box(12rem, 3rem);
+        font-size: 1.25rem;
+        column-gap: 20%
+    }
+}
+.upload__bottom--buttons {
+    @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        border-top: 0.15rem solid $mercury;
+        padding: 1rem;
+        padding-top: 1rem;
+        column-gap: 3rem;
+    }
 }
 .upload__cancel {
+    display: none;
+    @include tablet {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        color: $brainflix-blue;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+    &--link {
+        text-decoration: none;
+    }
+
+}
+.upload__cancel--mobile {
     display: flex;
     justify-content: center;
     padding: 1rem;
+    padding-top: 3rem;
+    color: $brainflix-blue;
+    font-weight: 600;
+    @include tablet {
+        display: none;
+    }
 }

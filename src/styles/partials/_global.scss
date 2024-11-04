@@ -150,7 +150,7 @@ padding-bottom: 0.5rem;
     border-color: $brainflix-blue;
     display: flex;
     color: $white;
-    column-gap: 5.5rem;
+    column-gap: 30%;
     padding: 0.25rem;
     &:hover {
         background-color: $brainflix-darkblue;
@@ -158,7 +158,7 @@ padding-bottom: 0.5rem;
     }
     @include tablet {
         width: 12rem;
-        column-gap: 2rem;
+        column-gap: 30%;
     }
     &--upload-icon {
         padding: 0.25rem;

@@ -200,8 +200,8 @@ header__logo--img {
   border-color: #0095FF;
   display: flex;
   color: #FFFFFF;
-  -moz-column-gap: 5.5rem;
-       column-gap: 5.5rem;
+  -moz-column-gap: 30%;
+       column-gap: 30%;
   padding: 0.25rem;
 }
 .header__button:hover {
@@ -494,9 +494,11 @@ header__logo--img {
     margin: auto;
   }
 }
+.nextvideos__link {
+  text-decoration: none;
+}
 
 .nextvideos__card {
-  text-decoration: none;
   display: flex;
   color: #323232;
   -moz-column-gap: 1rem;
@@ -515,18 +517,13 @@ header__logo--img {
 }
 
 .nextvideos__title {
-  text-decoration: none;
   font-size: 1rem;
 }
 
 .nextvideos__author {
-  text-decoration: none;
   font-size: 1rem;
 }
 
-.desktop__container {
-  text-decoration: none;
-}
 @media (min-width: 1280px) {
   .desktop__container {
     display: flex;
@@ -534,9 +531,6 @@ header__logo--img {
   }
 }
 
-.desktop__left {
-  text-decoration: none;
-}
 @media (min-width: 1280px) {
   .desktop__left {
     border-right: 0.125rem solid #E1E1E1;
@@ -604,13 +598,15 @@ header__logo--img {
 
 .upload__button {
   background-color: #0095FF;
-  width: 80vw;
+  width: 100%;
   border-radius: 0.25rem;
   border-color: #0095FF;
   display: flex;
   color: #FFFFFF;
   padding: 0.25rem;
   font-size: 0.625rem;
+  -moz-column-gap: 40%;
+       column-gap: 40%;
 }
 .upload__button:hover {
   background-color: #0065AD;
@@ -621,4 +617,5 @@ header__logo--img {
   display: flex;
   justify-content: center;
   padding: 1rem;
+  color: #0095FF;
 }/*# sourceMappingURL=App.css.map */

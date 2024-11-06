@@ -9,11 +9,10 @@ import axios from 'axios';
 
 function Homepage () {
     const {videoId} = useParams();
-    //set state
     const [videos, setVideos] = useState([]);
     const [currentVideo, setCurrentVideo] = useState (null);
     const [comments, setComments] = useState([]);
-    //retreive all videos from API and keep it in state
+    
     const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
     const apiKey = "bf2734ef-fc96-49b4-8efe-f7dc03dbaf4a";
 
@@ -56,7 +55,7 @@ function Homepage () {
     const handleAddComment = async (commentText) => {
         try {
             const response = await axios.post(`${baseUrl}/videos/${videoId}/comments?api_key=${apiKey}`,
-                {comment: commentText}
+            {comment: commentText}
             );
             setComments([...comments, response.data.comments]); 
         } catch (error) {
@@ -67,9 +66,9 @@ function Homepage () {
     const formatDate= (timestamp) => {
         const date = new Date(timestamp);
         return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'numeric', 
-        day: 'numeric'
+            year: 'numeric', 
+            month: 'numeric', 
+            day: 'numeric'
         });
     };
 

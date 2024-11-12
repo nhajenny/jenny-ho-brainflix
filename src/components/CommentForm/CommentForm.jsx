@@ -1,4 +1,4 @@
-import "../../styles/styles.css";
+import "../CommentForm/commentForm.css";
 import mohanMuruge from '../../assets/images/Mohan-muruge.jpg';
 import commentIcon from '../../assets/images/icons/add_comment.svg';
 import {useState} from 'react';
@@ -20,7 +20,6 @@ function CommentForm () {
             console.log("Comment submmited", {comment});
             setComment("");
             setCommentError(false);
-
         }
     };
 
@@ -41,11 +40,11 @@ function CommentForm () {
                             className={`comment__right--textarea ${commentError ? "comment__error" : ""}`}
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
-                            ></input>
+                         ></input>
                         <button type="submit" className="comment__button">
                             <img src={commentIcon} alt="icon to submit commit" className="comment__button--icon"/>
                             <label className="comment__button--text">COMMENT</label>
-                            </button>
+                        </button>
                     </form>
                 </div>
             </div>

@@ -1,13 +1,10 @@
-import '../../styles/styles.css';
-import { useEffect,useState } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import './videoPlayer.css';
 
 
 function Videoplayer ({image}) {
 
     return (
-            <div className="section__video--container">
+        <div className="section__video--container">
             <video className="section__video--player"
             poster={image}
             controls

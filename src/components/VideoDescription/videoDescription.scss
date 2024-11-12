@@ -1,0 +1,73 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography'as *;
+@use '../../styles/partials/variables' as *;
+
+//video description
+.description {
+    padding: 1rem;
+    @include tablet {
+        width: 95%;
+        margin: auto;
+    }
+    &__title {
+        color: $brainflix-black;  
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    &__text {
+        padding-top: 1rem;
+        color: $brainflix-black;
+    }
+    &__comment-count {
+        color: $brainflix-black;
+        font-weight: 600;
+        font-size: 1rem;
+        padding-top: 1rem;
+        @include tablet {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.description__card {
+   @include flex-row-between;
+   padding-top: 0.5rem;
+   padding-bottom: 0.5rem;
+   border-bottom: .125rem solid $mercury;
+   border-top: .125rem solid $mercury;
+   font-size: 1rem;
+   @include tablet {
+    @include flex-row;
+    border-top: none;
+
+   }
+}
+.description__left {
+    @include flex-column;
+    row-gap: 0.5rem;
+    &--author {
+        color: $brainflix-black
+    }
+    &--date {
+        color: $silver;
+    }
+    @include tablet {
+    @include flex-row;
+    column-gap: 1.25rem;
+   }
+}
+.description__right {
+    @include flex-column;
+    color: $silver;
+    @include tablet {
+        @include flex-row;
+        column-gap: 1.5rem;
+       }
+    &-view-img {
+        padding-right: 0.25rem;
+    }
+    &-like-img {
+        padding-right: 0.25rem;
+    }
+}

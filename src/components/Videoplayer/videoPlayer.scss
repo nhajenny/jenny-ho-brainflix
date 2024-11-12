@@ -1,0 +1,15 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography'as *;
+@use '../../styles/partials/variables' as *;
+
+.section__video {
+    background-color: $brainflix-darkblack;
+    width: 100vw;
+    &--player {
+        @include box(100%,25rem);
+        @include desktop {
+            @include box(100%, 35rem);
+        }
+    }  
+}

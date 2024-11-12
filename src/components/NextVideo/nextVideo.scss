@@ -1,0 +1,64 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography'as *;
+@use '../../styles/partials/variables' as *;
+
+//nextvideos 
+.nextvideos {
+    padding: 1rem;
+    text-decoration: none;
+    @include tablet {
+        width: 95%;
+        margin: auto;
+    }
+    &__heading {
+        color: $silver;
+        padding: 1rem;
+        font-size: 1.5rem;
+        @include tablet {
+            width: 95%;
+            margin: auto;
+        }
+    }
+    &__link {
+        text-decoration: none;
+    }
+}
+.nextvideos__card {
+    display: flex;
+    color: $brainflix-black;
+    column-gap: 1rem;
+    &--right {
+        @include flex-col-around;
+    }
+}
+.nextvideos__img{
+    @include box(12rem,8rem);
+    border-radius: .25rem;
+}
+.nextvideos__title {
+    font-size: 1rem;
+}
+.nextvideos__author {
+    font-size: 1rem;
+}
+
+.desktop__container {
+    @include desktop {
+        display: flex;
+        width: 100%;
+    }
+}
+
+.desktop__left {
+    @include desktop {
+        border-right: .125rem solid $mercury;
+        width: 70%;
+    }
+}
+.desktop__right {
+    text-decoration: none;
+    @include desktop {
+        padding-top: 1rem;
+    }
+}

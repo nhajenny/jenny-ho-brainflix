@@ -1,0 +1,21 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography'as *;
+@use '../../styles/partials/variables' as *;
+
+.comment__right {
+    display: flex;
+    color: $brainflix-black;
+    padding: 0.5rem;
+    row-gap: 0.5rem;
+}
+.comment__top {
+    @include flex-row-between;
+    &--name {
+        font-weight: 600;
+    }
+    &--date {
+        font-weight: 600;
+        color: $silver;
+    }
+}

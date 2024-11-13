@@ -13,33 +13,45 @@ function Upload () {
     const [descriptionError, setDescriptionError] = useState(false);
     const navigate = useNavigate();
 
-    // Handle form submission
-    const handleSubmit = (e) => {
+    const baseUrl = "http://localhost:8080/videos"; 
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (title.trim() === "") {
             setTitleError(true);
-            alert("please input title");
+            alert("Please input title");
         } else {
             setTitleError(false);
         } 
 
         if (description.trim() === "") {
             setDescriptionError(true);
-            alert("please input description");
+            alert("Please input description");
         } else {
             setDescriptionError(false);
-        } 
+        }
 
         if (title.trim() && description.trim()) {
-            console.log("Uploaded submitted:", { title, description });
-            alert("submitted!")
-            setTitle("");
-            setDescription("");
-            setTitleError(false);
-            setDescriptionError(false);
-            navigate("/");
+            try {
+                const response = await axios.post(baseUrl, {
+                    title,
+                    description,
+                    image: "/images/Upload-video-preview.jpg", // Default image path
+                });
+
+                console.log("Upload submitted:", response.data);
+                alert("Video uploaded successfully!");
+
+                setTitle("");
+                setDescription("");
+                navigate("/");
+            } catch (error) {
+                console.error("Error uploading video:", error);
+                alert("There was an issue uploading your video. Please try again.");
+            }
         } else {
-            alert("try again");
+            alert("Please fill in all fields and try again.");
         }
     };
 

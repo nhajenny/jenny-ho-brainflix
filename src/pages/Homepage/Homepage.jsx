@@ -13,53 +13,66 @@ function Homepage () {
     const [currentVideo, setCurrentVideo] = useState (null);
     const [comments, setComments] = useState([]);
     
-    const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
-    const apiKey = "bf2734ef-fc96-49b4-8efe-f7dc03dbaf4a";
+    const baseUrl = "http://localhost:8080/videos";
+    const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
 
-    const fetchVideos = async () => {
-        try {
-            const response = await axios.get(`${baseUrl}/videos?api_key=${apiKey}`);
-            return(response.data); 
-         }
-        catch(error) {
-            console.log("error fetchVideos", error.message);
-        }
+    const getVideos = async () => {
+      try {
+        const response = await axios.get(baseUrl);
+        return response.data;
+      } catch (error) {
+        console.error("Error fetching videos:", error);
+      }
     };
-
-    //fetchCurrentVideo by ID
-
-    useEffect(() => {
-        const fetchCurrentVideo = async () => {
-            let allVideos = await fetchVideos()
-            if (!videoId) {
-                const response = await axios.get(`${baseUrl}/videos/${allVideos[0].id}?api_key=${apiKey}`);
-                setCurrentVideo(response.data);
-                setComments(response.data.comments);
-                setVideos(allVideos);
-                return;
-            };
-            try {
-                const response = await axios.get(`${baseUrl}/videos/${videoId}?api_key=${apiKey}`);
-                setCurrentVideo(response.data);
-                setComments(response.data.comments);
-                setVideos(allVideos);
-                console.log(response.data);
-            } catch (error) {
-                console.log("Error in fetchCurrentVideo:", error.message);
-            }
-        };
-        fetchCurrentVideo();
-    }, [videoId]);
-
     
-    const handleAddComment = async (commentText) => {
-        try {
-            const response = await axios.post(`${baseUrl}/videos/${videoId}/comments?api_key=${apiKey}`,{comment: commentText});
-            setComments([...comments, response.data.comments]); 
-        } catch (error) {
-            console.error("Error adding comment:", error.message);
-        }
+    const getVideoById = async (id) => {
+      try {
+        const response = await axios.get(`${baseUrl}/${id}`);
+        return response.data;
+      } catch (error) {
+        console.error(`Error fetching video with ID ${id}:`, error);
+      }
     };
+    
+    const addVideo = async (videoData) => {
+      try {
+        const response = await axios.post(baseUrl, videoData);
+        return response.data;
+      } catch (error) {
+        console.error("Error adding video:", error);
+      }
+    };
+ 
+    useEffect(() => {
+        const fetchVideos = async () => {
+          const data = await getVideos();
+          setVideos(data);
+    
+          // Set the initial current video based on videoId or defaultVideoId
+          const initialVideoId = videoId || defaultVideoId;
+          const initialVideo = await getVideoById(initialVideoId);
+          setCurrentVideo(initialVideo);
+          setComments(initialVideo.comments || []);
+        };
+        fetchVideos();
+      }, [videoId]);
+    
+      const handleVideoClick = async (id) => {
+        const selectedVideo = await getVideoById(id);
+        setCurrentVideo(selectedVideo);
+        setComments(selectedVideo.comments || []);
+      };
+    
+      const handleAddComment = async (commentText) => {
+        try {
+          const response = await axios.post(`${baseUrl}/${currentVideo.id}/comments`, {
+            comment: commentText,
+          });
+          setComments([...comments, response.data]);
+        } catch (error) {
+          console.error('Error adding comment:', error.message);
+        }
+      };
 
     const formatDate= (timestamp) => {
         const date = new Date(timestamp);
@@ -95,12 +108,12 @@ return (
                 <CommentForm onAddComment={handleAddComment}></CommentForm> 
                 <section>
                     {comments.length > 0 ?  (
-                        comments.map((comments) => (
+                        comments.map((comment) => (
                             <CommentSection 
-                                key={comments.id} 
-                                author={comments.name} 
-                                date={formatDate(comments.timestamp)} 
-                                comment={comments.comment}>
+                                key={comment.id} 
+                                author={comment.name} 
+                                date={formatDate(comment.timestamp)} 
+                                comment={comment.comment}>
                             </CommentSection>
                         ))):(
                         <p>No comments available</p>
@@ -109,21 +122,28 @@ return (
             </div>
             <div className="desktop__right">
                 <section>
-                    <h2 className="nextvideos__heading">NEXT VIDEOS</h2>
-                        {videos.length > 0 ? (
-                            videos.filter(video => video.id !== currentVideo.id).map(videoList => (
-                                <Link to={`/videos/${videoList.id}`} key={videoList.id} className="nextvideos__link"> 
-                                    <NextVideos 
-                                        id={videoList.id} 
-                                        preview={videoList.image} 
-                                        title={videoList.title}   
-                                        channel={videoList.channel}
-                                        onClick = {()=> handleVideoClick(videoList.id)}
-                                    ></NextVideos> 
-                                </Link> 
-                        ))): (
-                        <p>No videos avaialble</p>
-                        )}
+                <h2 className="nextvideos__heading">NEXT VIDEOS</h2>
+                    {videos.length > 0 ? (
+                    videos
+                        .filter((video) => video.id !== currentVideo?.id) // Exclude current video from list
+                        .map((videoList) => (
+                        <Link
+                            to={`/videos/${videoList.id}`}
+                            key={videoList.id}
+                            className="nextvideos__link"
+                            onClick={() => handleVideoClick(videoList.id)}
+                        >
+                            <NextVideos
+                            id={videoList.id}
+                            preview={videoList.image}
+                            title={videoList.title}
+                            channel={videoList.channel}
+                            />
+                        </Link>
+                        ))
+                    ) : (
+                    <p>No videos available</p>
+                    )}
                 </section> 
             </div>
         </div>

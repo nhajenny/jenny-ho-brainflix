@@ -42,7 +42,6 @@ function Upload () {
 
                 console.log("Upload submitted:", response.data);
                 alert("Video uploaded successfully!");
-
                 setTitle("");
                 setDescription("");
                 navigate("/");

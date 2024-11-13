@@ -7,7 +7,7 @@
     background-color: $brainflix-darkblack;
     width: 100vw;
     &--player {
-        @include box(100%,25rem);
+        @include box(100%,100%);
         @include desktop {
             @include box(100%, 35rem);
         }

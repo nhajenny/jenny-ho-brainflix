@@ -13,7 +13,7 @@ function Homepage () {
     const [currentVideo, setCurrentVideo] = useState (null);
     const [comments, setComments] = useState([]);
     
-    const baseUrl = "http://localhost:8080/videos";
+    const baseUrl = import.meta.env.VITE_API_URL;
     const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
 
     const getVideos = async () => {
@@ -47,8 +47,6 @@ function Homepage () {
         const fetchVideos = async () => {
           const data = await getVideos();
           setVideos(data);
-    
-          // Set the initial current video based on videoId or defaultVideoId
           const initialVideoId = videoId || defaultVideoId;
           const initialVideo = await getVideoById(initialVideoId);
           setCurrentVideo(initialVideo);
@@ -125,7 +123,7 @@ return (
                 <h2 className="nextvideos__heading">NEXT VIDEOS</h2>
                     {videos.length > 0 ? (
                     videos
-                        .filter((video) => video.id !== currentVideo?.id) // Exclude current video from list
+                        .filter((video) => video.id !== currentVideo?.id) 
                         .map((videoList) => (
                         <Link
                             to={`/videos/${videoList.id}`}

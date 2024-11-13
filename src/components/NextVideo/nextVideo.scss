@@ -33,7 +33,7 @@
     }
 }
 .nextvideos__img{
-    @include box(12rem,8rem);
+    @include box(12rem,100%);
     border-radius: .25rem;
 }
 .nextvideos__title {

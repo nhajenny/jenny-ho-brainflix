@@ -3,6 +3,7 @@ import iconUpload from '../../assets/images/icons/upload.svg';
 import "../../styles/styles.css";
 import {Link, useNavigate} from 'react-router-dom';
 import {useState} from 'react';
+import axios from 'axios';
 
 
 function Upload () {
@@ -37,7 +38,7 @@ function Upload () {
                 const response = await axios.post(baseUrl, {
                     title,
                     description,
-                    image: "/images/Upload-video-preview.jpg", // Default image path
+                    image: '../../src/assets/images/Upload-video-preview.jpg', 
                 });
 
                 console.log("Upload submitted:", response.data);
